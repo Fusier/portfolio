@@ -1,9 +1,14 @@
 
-h1, h2, h3, p {
+h1, h2, h3, h4, p {
   color: white;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: 'Arial', sans-serif;
+}
+
+section {
+  padding-left: 15px;
+  padding-right: 15px;
 }
