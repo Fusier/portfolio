@@ -1,175 +1,116 @@
-  
-  .homepage {
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth; /* Enables smooth scrolling */
-    scroll-margin-top: 20px;
-    background-color: #232323;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
-  /* Navigation Bar */
-  .navbar {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 0;
-    z-index: 1000;
-    box-shadow: rgba(0, 0, 0, 0.5) 1.95px 1.95px 2.6px;
-    height: 25px;
-    background-color: #333;
-  }
-  /* Burger Menu Icon */
-.burger-icon {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  width: 30px;
-}
-
-.close-icon {
-  float: right;
-}
-
-.menu-items {
-  padding-top: 30px;
-}
-
-.burger-icon .bar {
-  width: 100%;
-  height: 4px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Sidebar Menu */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  height: 100%;
-  width: 250px;
-  background-color: #333;
-  color: white;
-  z-index: 9999;
-  transition: right 0.3s ease;
-}
-
-.sidebar.open {
-  right: 0;
-}
-
-.sidebar ul {
-  list-style-type: none;
+.homepage {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+  scroll-margin-top: 20px;
+  background-color: white;
 }
 
-.sidebar ul li {
-  padding: 15px;
-  text-align: center;
-
-  &:first-child {
-    padding-top: 30px;
-  }
+h2 {
+  font-size: 2rem;
 }
 
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
-.sidebar ul li a:hover {
-  background-color: #007bff;
-  display: block;
-}
-
-.overlay {
-  position: fixed;
+/* Navigation Bar */
+.navbar {
+  position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1002; /* Ensure it's behind the sidebar */
-}
-  
-  /* About Section */
-  .section {
-    background-color: #232323;
+  padding: 15px 0;
+  z-index: 1000;
+  height: 25px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 50px;
+  transition: all 0.3s ease;
+
+  ._anchor {
+    margin-left: auto;
+  }
+
+  ._anchor ul {
+    list-style: none;
     display: flex;
-    flex-direction: row;
-
-    .image-section {
-      flex: 1;
-      display: flex;
-      padding-top: 50px;
-    }
-    
-    .image {
-      height: 564px;
-      width: 424px;
-      border-radius: 8px;
-    }
-  }
-  
-  .text-section {
-    flex: 1;
-    padding: 20px;
-    top: 0;
-
-      &.center {
-        text-align: center;
-      }
+    gap: 20px;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Projects Section */
-  .projects-section {
-    background-color: #232323;
-    min-height: 100vh;
-  }
-  
-  /* Contact Section */
-  .form-section {
-    background-color: #232323;
-    min-height: 100vh;
-  }
-  
-  .form-section a {
-    color: #007bff;
+  ._anchor ul li a {
     text-decoration: none;
+    color: black;
   }
-  
-  .form-section a:hover {
-    text-decoration: underline;
+}
+
+.navbar.scrolled {
+  background-color: white;
+}
+
+/* About Section */
+.section {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+
+  .image-section {
+    flex: 1;
+    display: flex;
+    padding-top: 50px;
   }
+
+  .image {
+    height: 564px;
+    width: 424px;
+    border-radius: 8px;
+  }
+}
+
+.text-section {
+  flex: 1;
+  padding: 20px;
+  top: 0;
+
+  &.center {
+    text-align: center;
+  }
+}
+
+/* Projects Section */
+.projects-section {
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* Contact Section */
+.form-section {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.form-section a {
+  color: black;
+  text-decoration: none;
+}
+
+.form-section a:hover {
+  text-decoration: underline;
+}
 
 #button_p {
-    padding: 15px;
-    max-width: fit-content;
-    background: white;
-    color: black;
+  padding: 15px;
+  max-width: fit-content;
+  background: white;
+  color: black;
 
-    .vertical-align-middle {
-      vertical-align: middle;
-      padding-right: 5px;
-    }
+  .vertical-align-middle {
+    vertical-align: middle;
+    padding-right: 5px;
+  }
 }
 
 #button_h:hover {
-    color: black;
+  color: black;
 }
 
 .ac_btn {

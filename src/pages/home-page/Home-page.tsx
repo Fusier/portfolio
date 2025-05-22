@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home-page.scss";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
 import TypeAnimationComponent from "../../components/TypeAnimation/TypeAnimation";
-import CloseIcon from "@mui/icons-material/Close";
-import samuImage from "../../assets/samu_test.jpg";
+import samuImage from "../../assets/samu.jpg";
 import Card from "../../components/Card/card";
 import DownloadIcon from "@mui/icons-material/Download";
 
 const HomePage: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const keywords1 = [
     "Javascript",
     "Typescript",
@@ -34,55 +33,33 @@ const HomePage: React.FC = () => {
     "Jest",
   ];
 
-  // Toggle burger menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
 
-  const closeMenuOnOverlayClick = () => {
-    setIsMenuOpen(false);
-  };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="homepage">
       {/* Navigation Bar */}
-      <div className="navbar">
-        <div className="burger-icon" onClick={toggleMenu}>
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+      <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="_anchor">
+          <ul>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#projects">My Projects</a>
+            </li>
+            <li>
+              <a href="#contact">Contact Me</a>
+            </li>
+          </ul>
         </div>
       </div>
-
-      {/* Sidebar Menu */}
-      <nav className={`sidebar ${isMenuOpen ? "open" : ""}`}>
-        <div className="close-icon" onClick={toggleMenu}>
-          <CloseIcon
-            style={{ color: "white", fontSize: "2rem", cursor: "pointer" }}
-          />
-        </div>
-        <ul className="menu-items">
-          <li>
-            <a href="#about" onClick={toggleMenu}>
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#projects" onClick={toggleMenu}>
-              My Projects
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={toggleMenu}>
-              Contact Me
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      {isMenuOpen && (
-        <div className="overlay" onClick={closeMenuOnOverlayClick}></div>
-      )}
 
       {/* About Section (Default Landing Section) */}
       <section id="about" className="section">
@@ -131,8 +108,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      <hr />
-
       {/* Projects Section */}
       <section id="projects" className="projects-section">
         <h2>My Projects</h2>
@@ -140,8 +115,6 @@ const HomePage: React.FC = () => {
           <Card />
         </ul>
       </section>
-
-      <hr />
 
       <section id="preferred" className="preferred-section">
         <h2>Preferred Technologies:</h2>
@@ -158,8 +131,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      <hr />
 
       {/* Contact Section */}
       <section id="contact" className="form-section">
