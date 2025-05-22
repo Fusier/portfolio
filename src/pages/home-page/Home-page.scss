@@ -13,9 +13,8 @@ h2 {
 /* Navigation Bar */
 .navbar {
   position: sticky;
-  top: 0;
-  left: 0;
-  padding: 15px 0;
+  top: -30px; 
+  margin-bottom: -75px;
   z-index: 1000;
   height: 25px;
   background: transparent;
@@ -24,6 +23,14 @@ h2 {
   justify-content: space-between;
   padding: 25px 50px;
   transition: all 0.3s ease;
+
+  ._logo {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+  }
 
   ._anchor {
     margin-left: auto;
@@ -45,34 +52,94 @@ h2 {
 
 .navbar.scrolled {
   background-color: white;
+  padding-top: 50px;
 }
 
-/* About Section */
-.section {
-  background-color: white;
+.home-section {
   display: flex;
-  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 
   .image-section {
-    flex: 1;
-    display: flex;
-    padding-top: 50px;
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    clip-path: polygon(0% 100%, 21% 0%, 100% 0%, 100% 100%);
+    z-index: 0; /* Lower than navbar */
+    right: 0;
+  
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
   }
-
-  .image {
-    height: 564px;
-    width: 424px;
-    border-radius: 8px;
+  
+  .text-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding-left: 50px;
+    z-index: 1;
+  
+    ._margin {
+      margin: 0px;
+    }
+  
+    ._sub_title {
+      font-weight: 500;
+      font-size: 17px;
+      font-family: "Roboto";
+      float: left;
+      position: relative;
+    }
   }
 }
 
-.text-section {
-  flex: 1;
-  padding: 20px;
-  top: 0;
-
-  &.center {
-    text-align: center;
+.about-section {
+  padding-right: 30px;
+  display: flex;
+  height: 100vh;
+  
+  .image-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 104%;
+  }
+  
+  .image-section .image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    box-shadow: 0px 0px 40px rgb(0 0 0 / 20%);
+    clip-path: polygon(0% 0%, 100% 0%, 79% 100%, 0% 100%);
+  }
+  
+  .text-section {
+    width: 50%;
+    flex-direction: column;
+    display: flex;
+    align-self: center;
+    padding-left: 50px;
+    z-index: 1;
+  
+    ._margin {
+      margin: 0px;
+    }
+  
+    ._sub_title {
+      font-weight: 500;
+      font-size: 17px;
+      font-family: "Roboto";
+      float: left;
+      position: relative;
+    }
   }
 }
 
@@ -126,7 +193,7 @@ h2 {
 }
 
 .ac_btn:hover {
-  box-shadow: 8px 8px 0px white, -8px -8px 0px white;
+  box-shadow: 8px 8px 0px black, -8px -8px 0px black;
 }
 
 .ac_btn:hover .one {

@@ -3,7 +3,8 @@ import "./Home-page.scss";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
 import TypeAnimationComponent from "../../components/TypeAnimation/TypeAnimation";
-import samuImage from "../../assets/samu.jpg";
+import samuHomeImage from "../../assets/samu_2.jpg";
+import samuAboutImage from "../../assets/samu.jpg";
 import Card from "../../components/Card/card";
 import DownloadIcon from "@mui/icons-material/Download";
 
@@ -43,9 +44,12 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="homepage">
+    <div className="homepage" id="home">
       {/* Navigation Bar */}
       <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <a href="#home" className="_logo">
+          Samu
+        </a>
         <div className="_anchor">
           <ul>
             <li>
@@ -61,43 +65,56 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      {/* About Section (Default Landing Section) */}
-      <section id="about" className="section">
-        <div className="image-section">
-          <img className="image" src={samuImage} alt="Samu"></img>
-        </div>
+      <section className="home-section">
         <div className="text-section">
-          <h4>
+          <h4 className="_margin">
             <TypeAnimationComponent />
           </h4>
-          <p>
-            Hi, I’m Samu – a passionate and experienced software developer with
-            over 8 years of programming experience and 3 years of hands-on work
-            in real-world production environments. I thrive in dynamic teams and
-            take pride in building scalable, maintainable, and forward-thinking
-            solutions. Over the years, I’ve contributed to a wide range of
-            projects, including a major product I maintained for an S&P 500
-            company. That role taught me the value of accountability, clean
-            architecture, and delivering real value under high expectations.
-            I’ve had the opportunity to work both on the ground floor of new
-            ideas and to improve legacy systems — something I find equally
-            rewarding. My technical toolkit includes a wide array of modern
-            technologies such as TypeScript, Angular, JavaScript, Java, Python,
-            and many others listed throughout this site. Whether it's front-end
-            frameworks or back-end architecture, I enjoy diving deep and
-            bridging the gap between systems and user experiences. Academically,
-            I hold a Bachelor’s degree in Business Information Systems, which
-            gives me a strong foundation not only in tech but also in
-            understanding the business drivers behind every project. I believe
-            the best software is built when technical excellence aligns with
-            real-world impact. I'm an easygoing, reliable team player with a
-            strong inner drive to constantly learn, adapt, and grow. I’m
-            motivated by challenges and excited by the opportunity to help shape
-            the next generation of digital solutions — ones that are
-            sustainable, scalable, and meaningful. Thanks for stopping by — I’d
-            love to connect and see how I can contribute to your team’s success.
-          </p>
+          <h5 className="_sub_title">An independent web developer</h5>
+        </div>
+        <div className="image-section">
+          <img className="image" src={samuHomeImage} alt="Samu" />
+        </div>
+      </section>
 
+      <section id="section" className="about-section">
+        <div className="image-section">
+          <img className="image" src={samuAboutImage} alt="Samu" />
+        </div>
+        <div className="text-section">
+          <h3 className="_margin">Web developer based in Boston</h3>
+          <div className="_sub_title">
+            <p>
+              I'm a passionate software developer with 8 years of programming
+              experience and 3 years working in real-world production
+              environments. I thrive in collaborative teams and take pride in
+              building scalable, maintainable, and modern solutions.
+            </p>
+            <p>
+              One of my most impactful roles involved maintaining a major
+              product for an S&P 500 company, where I learned the importance of
+              clean architecture, accountability, and delivering value under
+              high standards. I’ve worked on both new, innovative projects and
+              the improvement of legacy systems — both equally rewarding
+              challenges.
+            </p>
+            <p>
+              My skill set includes a range of modern technologies such as
+              TypeScript, Angular, JavaScript, Java, Python, and more. I enjoy
+              working across the full stack and bridging the gap between systems
+              and user experience. I hold a Bachelor’s degree in Business
+              Information Systems, giving me a strong foundation in both
+              technology and business strategy.
+            </p>
+            <p>
+              I believe that great software is built where technical excellence
+              meets real-world value. I’m easygoing, growth-oriented, and driven
+              by curiosity. I'm always eager to learn, improve, and contribute
+              to meaningful, sustainable, and future-ready digital products.
+              Thanks for visiting — I’d love the opportunity to help drive your
+              team’s success.
+            </p>
+          </div>
           <div id="button_p" className="ac_btn btn">
             <DownloadIcon className="vertical-align-middle" />
             Download CV
