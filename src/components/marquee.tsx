@@ -62,7 +62,6 @@ const keywords = [
 const TechMarquee = () => (
   <Marquee gradient={false} speed={40} pauseOnHover={true}>
     {keywords.map((keyword, index) => {
-      // 4. Safely get the icon name
       const iconName = iconNameMap[keyword];
 
       return (

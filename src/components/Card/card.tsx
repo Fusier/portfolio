@@ -1,55 +1,44 @@
-import React from "react";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import CardActionArea from "@mui/material/CardActionArea";
 import "./card.scss";
+import { Button } from "@mui/material";
 
-const Card: React.FC = () => {
-  return (
-    <div className="container">
-      <div className="box">
-        <span></span>
-        <div className="content">
-          <h2>Card one</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-      <div className="box">
-        <span></span>
-        <div className="content">
-          <h2>Card one</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-      <div className="box">
-        <span></span>
-        <div className="content">
-          <h2>Card two</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-      <div className="box">
-        <span></span>
-        <div className="content">
-          <h2>Card Three</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-    </div>
-  );
+type ActionAreaCardProps = {
+  image: string;
+  title: string;
+  infotext: string;
+  link?: string;
+  technologies?: string;
 };
 
-export default Card;
+export default function ActionAreaCard({
+  image,
+  title,
+  infotext,
+  link,
+  technologies,
+}: ActionAreaCardProps) {
+  return (
+    <Card
+      sx={{ borderRadius: 0, boxShadow: 10, objectFit: "cover" }}
+      onClick={() => link && window.open(link, "_blank")}
+      className="card"
+    >
+      <CardActionArea>
+        <CardMedia component="img" height="300" width="500" image={image} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            {infotext}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
