@@ -6,9 +6,9 @@ const TypeAnimationComponent = () => {
     <TypeAnimation
       sequence={["Hi, nice to meet you. I'm Samu"]}
       wrapper="span"
-      speed={60}
+      speed={30}
       cursor={false}
-      style={{ fontSize: "2em", display: "inline-block" }}
+      style={{ fontSize: "3em", display: "inline-block", color: "white" }}
       repeat={0}
     />
   );

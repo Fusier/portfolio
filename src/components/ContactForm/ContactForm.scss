@@ -2,7 +2,6 @@
   max-width: 600px;
   margin: 0 auto;
   padding-top: 0px;
-  background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,11 +42,12 @@
   border-width: 3px;
   border: none;
   cursor: pointer;
-  background-color: #C99752;
+  background-color: deepskyblue;
+  margin-left: 20px;
 }
 
 .contact-form button:hover {
-  background-color: #FEF2AD;
+  background-color: aqua;
 }
 
 .submit {

@@ -1,41 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Home-page.scss";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
 import TypeAnimationComponent from "../../components/TypeAnimation/TypeAnimation";
-import samuHomeImage from "../../assets/samu_2.jpg";
-import samuAboutImage from "../../assets/samu.jpg";
+import samuHomeImage from "../../assets/black_test4.jpg";
+import samuAboutImage from "../../assets/samu_casual.jpg";
 import MBTASchedule from "../../assets/MBTA_schedules.png";
 import { motion } from "framer-motion";
 import Card from "../../components/Card/card";
 import DownloadIcon from "@mui/icons-material/Download";
-import TechMarquee from "../../components/marquee";
-import { useSectionTracker } from "../../hooks/useSectionTracker";
+import { FaGithub, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Button } from "@mui/material";
 
 const HomePage: React.FC = () => {
-  const sectionIds = ["about", "projects", "contact"];
-
-  const activeSection = useSectionTracker(sectionIds);
-
   return (
     <div className="homepage" id="home">
       {/* Navigation Bar */}
       <div className="navbar">
-        <a href="#home" className="_logo">
-          Samu
-        </a>
         <div className="_anchor">
-          <ul className="nav-items">
-            {sectionIds.map((id) => (
-              <li
-                key={id}
-                className={`nav-item ${activeSection === id ? "active" : ""}`}
-              >
-                <a href={`#${id}`}>
-                  {id.charAt(0).toUpperCase() + id.slice(1)}
-                </a>
-              </li>
-            ))}
+          <ul>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#projects">My Projects</a>
+            </li>
+            <li>
+              <a href="#contact">Contact Me</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -45,49 +37,53 @@ const HomePage: React.FC = () => {
           <h4 className="_margin">
             <TypeAnimationComponent />
           </h4>
-          <h5 className="_sub_title">An independent web developer</h5>
+          <h5 className="sub-title">An independent web developer</h5>
         </div>
         <div className="image-section">
           <img className="image" src={samuHomeImage} alt="Samu" />
         </div>
+        <div className="social-icons">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub size={30} color={"white"} />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook size={30} color={"white"} />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin size={30} color={"white"} />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram size={30} color={"white"} />
+          </a>
+        </div>
       </section>
 
       <section id="about" className="about-section">
-        <div className="image-section">
-          <motion.div
-            initial={{ x: "-100%", opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{
-              once: true,
-              amount: 0.4,
-              margin: "200px",
-            }}
-            transition={{
-              type: "spring",
-              duration: 0.7,
-              bounce: 0.2,
-            }}
-          >
+        <h2 className="about-title">About me</h2>
+        <div className="about-content">
+          <div className="image-section">
             <img className="image" src={samuAboutImage} alt="Samu" />
-          </motion.div>
-        </div>
-        <div className="text-section">
-          <motion.div
-            initial={{ x: "80%", opacity: 1 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{
-              once: true,
-              amount: 0.6,
-              margin: "200px",
-            }}
-            transition={{
-              type: "spring",
-              duration: 0.7,
-              bounce: 0.2,
-            }}
-          >
-            <h3 className="_margin">Web developer based in Boston</h3>
-            <div className="_sub_title">
+          </div>
+          <div className="text-section">
+            <h2 className="top-title">Who am I?</h2>
+            <h3 className="margin">Bostonian with that Finnishing touch 😉</h3>
+            <div className="sub-title">
               <p>
                 I'm a passionate software developer with eight years of overall
                 programming experience with over three of those in real-world
@@ -116,14 +112,39 @@ const HomePage: React.FC = () => {
                 to create solutions that are not only effective today but
                 sustainable for the future.
               </p>
+              <p className="border-bottom">
+                I'm originally from Finland, which has definitely influenced how
+                I approach work — practical, focused, and always aiming for
+                clean, efficient solutions. Outside of development, I stay
+                active by going to the gym, and when I have some extra free
+                time, I enjoy playing video games. Both help me recharge, stay
+                sharp, and think creatively — whether I'm problem-solving in
+                code or just taking a breather between projects.
+              </p>
             </div>
-            <div id="button_p" className="ac_btn btn">
-              <DownloadIcon className="vertical-align-middle" />
-              Download CV
+            <div className="contact-info">
+              <p>Name: Samu Willman</p>
+              <p>Email: samu.willman.usa@gmail.com</p>
+              <p>Phone Number: +1 (617) 581-8784</p>
+              <p>Spoken Languages: Finnish, English, Swedish</p>
             </div>
-          </motion.div>
+            <div className="padding-top">
+              <Button
+                variant="contained"
+                className="button-color"
+                sx={{
+                  borderRadius: 0,
+                }}
+                startIcon={<DownloadIcon className="vertical-align-middle" />}
+              >
+                Download CV
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
+
+      <section id="resume" className="resume-section"></section>
 
       {/* Projects Section */}
       <section id="projects" className="projects-section">
@@ -148,23 +169,11 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="programming-bg-section">
-        <div className="programming-bg-content">
-          <h2 className="white-text">Let's work together</h2>
-          <p className="white-text">
-            If you’d like to get in touch, feel free to reach out via the form
-            below:
-          </p>
-          <ContactForm />
-        </div>
-
-        {/* Contact Form */}
+      <section id="contact-me" className="contact-me">
+        <ContactForm></ContactForm>
       </section>
 
-      <section id="Footer" className="Footer-section">
-        <Footer />
-      </section>
+      <Footer />
     </div>
   );
 };

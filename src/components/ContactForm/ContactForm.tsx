@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ContactForm.scss";
+import { Button } from "@mui/material";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,10 +22,8 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you can handle form submission (e.g., send the form data to your server)
     console.log("Form Data:", formData);
 
-    // Clear the form after submission
     setFormData({
       name: "",
       email: "",
@@ -83,9 +82,16 @@ const ContactForm: React.FC = () => {
         ></textarea>
       </div>
 
-      <button type="submit" className="submit">
+      <Button
+        variant="contained"
+        className="button-color"
+        sx={{
+          borderRadius: 0,
+        }}
+        type="submit"
+      >
         Submit
-      </button>
+      </Button>
     </form>
   );
 };
