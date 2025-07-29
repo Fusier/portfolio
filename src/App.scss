@@ -8,17 +8,30 @@ p {
 
 html {
   scroll-behavior: smooth;
-  font-family: "Arial", sans-serif;
+  font-family: "Poppins";
 }
 
 body {
   overflow-x: hidden;
 }
 
+input,
 textarea {
-  font-family: "Tahoma", "Arial", "Arabic Transparent";
+  background-color: rgb(15, 15, 15);
+  font-family: "Poppins";
+  border: 0;
+  color: white;
 }
 
-input[type="text"] {
-  font-family: "Tahoma", "Arial";
+input::placeholder,
+textarea::placeholder {
+  color: rgb(120, 120, 120);
+}
+
+.sub-text {
+  color: rgb(180, 180, 180);
+}
+
+.large-title {
+  font-size: 80px;
 }

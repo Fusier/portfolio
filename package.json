@@ -6,6 +6,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@fontsource/poppins": "^5.2.6",
     "@mui/icons-material": "^6.4.11",
     "@mui/material": "^6.5.0",
     "@testing-library/jest-dom": "^5.14.1",

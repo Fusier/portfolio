@@ -9,8 +9,17 @@ import MBTASchedule from "../../assets/MBTA_schedules.png";
 import { motion } from "framer-motion";
 import Card from "../../components/Card/card";
 import DownloadIcon from "@mui/icons-material/Download";
-import { FaGithub, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+import {
+  FaGithub,
+  FaFacebook,
+  FaLinkedin,
+  FaInstagram,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import { Button } from "@mui/material";
+import ResumeItem from "../../components/ResumeItem/resumeItem";
 
 const HomePage: React.FC = () => {
   return (
@@ -75,7 +84,7 @@ const HomePage: React.FC = () => {
       </section>
 
       <section id="about" className="about-section">
-        <h2 className="about-title">About me</h2>
+        <h2 className="about-title">About Me</h2>
         <div className="about-content">
           <div className="image-section">
             <img className="image" src={samuAboutImage} alt="Samu" />
@@ -84,14 +93,14 @@ const HomePage: React.FC = () => {
             <h2 className="top-title">Who am I?</h2>
             <h3 className="margin">Bostonian with that Finnishing touch 😉</h3>
             <div className="sub-title">
-              <p>
+              <p className="sub-text">
                 I'm a passionate software developer with eight years of overall
                 programming experience with over three of those in real-world
                 production environments. I enjoy working in dynamic teams and
                 take pride in building solutions that are scalable,
                 maintainable, and future-ready.
               </p>
-              <p>
+              <p className="sub-text">
                 A highlight of my career was leading and maintaining a major
                 product for an S&P 500 company, where I gained valuable
                 experience in clean architecture, accountability, and delivering
@@ -102,7 +111,7 @@ const HomePage: React.FC = () => {
                 bridging the gap between complex systems and great user
                 experiences.
               </p>
-              <p>
+              <p className="sub-text">
                 I hold a degree in Business Information Systems, giving me a
                 strong understanding of both technology and the business context
                 that drives it. I believe the best software is built where
@@ -112,7 +121,7 @@ const HomePage: React.FC = () => {
                 to create solutions that are not only effective today but
                 sustainable for the future.
               </p>
-              <p className="border-bottom">
+              <p className="border-bottom sub-text">
                 I'm originally from Finland, which has definitely influenced how
                 I approach work — practical, focused, and always aiming for
                 clean, efficient solutions. Outside of development, I stay
@@ -123,10 +132,21 @@ const HomePage: React.FC = () => {
               </p>
             </div>
             <div className="contact-info">
-              <p>Name: Samu Willman</p>
-              <p>Email: samu.willman.usa@gmail.com</p>
-              <p>Phone Number: +1 (617) 581-8784</p>
-              <p>Spoken Languages: Finnish, English, Swedish</p>
+              <p>
+                Name: <span className="sub-text"> Samu Willman</span>
+              </p>
+              <p>
+                Email:{" "}
+                <span className="sub-text "> samu.willman.usa@gmail.com</span>
+              </p>
+              <p>
+                Phone Number:{" "}
+                <span className="sub-text"> +1 (617) 581-8784</span>
+              </p>
+              <p>
+                Spoken Languages:
+                <span className="sub-text"> Finnish, English, Swedish</span>
+              </p>
             </div>
             <div className="padding-top">
               <Button
@@ -144,33 +164,79 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      <section id="resume" className="resume-section"></section>
+      <section id="resume" className="resume-section">
+        <div className="resume-list">
+          <div>
+            <ResumeItem
+              title="Bitwise Oy"
+              subTitle="04/2022 - 11/2024"
+              description="Co-managed a large S&P 500 company product."
+            ></ResumeItem>
+            <ResumeItem
+              title="Monad Oy"
+              subTitle="04/2021 - 10/2021"
+              description="Developer on an easy-to-use hour logging tool NoTime™"
+            ></ResumeItem>
+            <ResumeItem
+              title="Tampere University of Applied Sciences"
+              subTitle="06/2018 - 06/2024"
+              description="Graduated as a Bachelor of Business Information Systems"
+            ></ResumeItem>
+          </div>
+        </div>
+      </section>
 
       {/* Projects Section */}
       <section id="projects" className="projects-section">
-        <h2>Featured Projects</h2>
-        <div className="projects-list">
+        <h2>Featured Project</h2>
+        <div className="project">
           <Card
             image={MBTASchedule}
             title="MBTA schedules"
             infotext="Timetable for MBTA train schedules"
             link="https://mbta-infotable.pages.dev/"
           />
-          <Card
-            image="Video game mod"
-            title="second project"
-            infotext="This is a project I've made"
-          />
-          <Card
-            image="Temperature meter"
-            title="third project"
-            infotext="This is a project I've made"
-          />
         </div>
       </section>
 
-      <section id="contact-me" className="contact-me">
-        <ContactForm></ContactForm>
+      <section id="contact" className="contact">
+        <h2 className="section-title">Get in Touch</h2>
+        <div className="form-section">
+          <div className="column">
+            <h3 className="message-me">Message Me</h3>
+            <ContactForm />
+          </div>
+          <div className="column">
+            <h3 className="contact-title">Contact Information</h3>
+            <div className="contact-text">
+              <p className="sub-text contact-title">
+                Currently living in Boston but available for projects all around
+                USA. Don't hesitate to contact me whether it's a work
+                opportunity or a freelance project!
+              </p>
+              <div className="contact-item">
+                <FaPhoneAlt
+                  className="icon"
+                  color="deepskyblue"
+                  size={"30px"}
+                />
+                <p className="sub-text">+1 (617) 581-8784</p>
+              </div>
+              <div className="contact-item">
+                <MdEmail className="icon" color="deepskyblue" size={"30px"} />
+                <p className="sub-text">samu.willman.usa@gmail.com</p>
+              </div>
+              <div className="contact-item">
+                <FaLocationDot
+                  className="icon"
+                  color="deepskyblue"
+                  size={"30px"}
+                />
+                <p className="sub-text">Boston, MA</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <Footer />

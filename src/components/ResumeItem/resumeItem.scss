@@ -1,0 +1,15 @@
+.resume-item {
+  position: relative;
+  width: 50%;
+  margin-bottom: 40px;
+  justify-self: right;
+  border-bottom: 2px solid #414141;
+
+  .resume-content {
+    padding: 15px;
+  }
+
+  &:last-child::before {
+    bottom: 0;
+  }
+}

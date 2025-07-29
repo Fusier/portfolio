@@ -20,7 +20,6 @@ export default function ActionAreaCard({
   title,
   infotext,
   link,
-  technologies,
 }: ActionAreaCardProps) {
   return (
     <Card
@@ -29,7 +28,7 @@ export default function ActionAreaCard({
       className="card"
     >
       <CardActionArea>
-        <CardMedia component="img" height="300" width="500" image={image} />
+        <CardMedia component="img" image={image} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
